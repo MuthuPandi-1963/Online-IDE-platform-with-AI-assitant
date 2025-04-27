@@ -5,18 +5,25 @@ import ProgrammingThunk from "../../store/Thunks/ProgrammingThunk";
 import { Editor } from "@monaco-editor/react";
 import { CommandLineIcon } from "@heroicons/react/24/outline";
 import AiCodeThunk from "../../store/Thunks/AI_CodeThunk";
+import { useNavigate } from "react-router-dom";
 
 const CodeRunner = () => {
   const dispatch = useDispatch();
   const { input, language, output, loading, error, errorMessage } = useSelector(
     (state) => state.programming
   );
+  const data = useSelector(state=>state.auth)
   const [editorReady, setEditorReady] = useState(false);
   const [showPrompt, setShowPrompt] = useState(false);
   const [promptInput, setPromptInput] = useState("");
   const [isAILoading, setIsAILoading] = useState(false);
-  
-  const handleOpenAI = () => setShowPrompt(true);
+  const navigate = useNavigate()
+  const handleOpenAI = () => {
+    if(!data?.isAuthenticated){
+      navigate("/login")
+    }
+    setShowPrompt(true)
+  };
 
   const handleSubmit = async () => {
     setIsAILoading(true); // Start loading

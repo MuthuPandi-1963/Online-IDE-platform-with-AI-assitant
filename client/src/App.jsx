@@ -10,8 +10,6 @@ import Home from "./Components/Header/Home";
 import CodeEditor from "./Components/Code/CodeEditor";
 import WelcomePage from "./Components/Code/Hero";
 import Programming from "./Components/Code/Programming";
-import React from "./Components/Code/React";
-import Share from "./Components/Code/Share";
 import Chatbot from "./Components/Code/AICode";
 import ApiResponseViewer from "./store/Thunks/AiData";
 import Documentation from "./Components/Code/Doc";
@@ -28,24 +26,24 @@ export default function App() {
      authDispatch({type:"close"})
      
   },[Dispatch])
-
+  console.log(data?.isAuthenticated );
+  
   return(
     <>
     <Routes>
       <Route path={""} element = {<Home/>}>
-      {!data?.user?.isAuthenticated ? <Route path={"/login"} element = {<LoginPage/>}/> : <Route path={""} element = {<WelcomePage/>}/>}
-      {!data?.user?.isAuthenticated ? <Route path={"/signup"} element = {<SignupPage/>}/> : <Route path={""} element = {<WelcomePage/>}/>}
+      {!data?.isAuthenticated ? <Route path={"/login"} element = {<LoginPage/>}/> : <Route path={""} element = {<WelcomePage/>}/>}
+      {!data?.isAuthenticated ? <Route path={"/signup"} element = {<SignupPage/>}/> : <Route path={""} element = {<WelcomePage/>}/>}
       
       
       <Route path={""} element = {<WelcomePage/>}/>
       <Route path={"/r"} element = {<ApiResponseViewer/>}/>
       <Route path={"/codeEditor"} element = {<CodeEditor/>}/>
       <Route path={"/programming"} element = {<Programming/>}/>
-      <Route path={"/code_generator"} element = {<Chatbot/>}/>
+      <Route path={"/code_generator"} element = {data?.isAuthenticated
+        ? <Chatbot/> : <LoginPage/>}/>
       <Route path={"/docs"} element = {<Documentation/>}/>
       <Route path={"/about"} element = {<About/>}/>
-      {/* <Route path={"/react"} element = {<React/>}/>
-      <Route path={"/share"} element = {<Share/>}/> */}
       </Route>
     </Routes>
     
