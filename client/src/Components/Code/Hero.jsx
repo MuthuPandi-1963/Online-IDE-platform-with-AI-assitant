@@ -6,7 +6,7 @@ const WelcomePage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-black via-indigo-900 to-sky-900 text-white">
       {/* Animated background particles */}
       <div className="absolute inset-0 opacity-20">
         {[...Array(50)].map((_, i) => (
@@ -30,10 +30,14 @@ const WelcomePage = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 flex items-center justify-center ga-2">
+          <span className="text-5xl text-sky-500 font-bold pr-2">⌘</span>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-300">
               CODE-FOX 
             </span>
+            <div className="w-12 h-12 bg-black ml-4 rounded-lg flex items-center justify-center">
+                            <span className="text-3xl font-bold">&gt;_</span>
+                        </div>
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Your modern web development playground with real-time collaboration, 
@@ -85,8 +89,9 @@ const WelcomePage = () => {
         </div>
       </main>
 
-      {/* Animated gradient border bottom */}
-      <div className="h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x" />
+      {/* Animated gradient border bottom  */}
+
+      {/* <div className="h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x" /> */}
     </div>
   );
 };
@@ -107,11 +112,11 @@ const features = [
     title: "Templates",
     description: "Professional starter templates for React, Vue, and modern workflows"
   },
-  {
-    icon: <FiTerminal />,
-    title: "CLI Integration",
-    description: "Connect with local development environment via CLI tool"
-  },
+  // {
+  //   icon: <FiTerminal />,
+  //   title: "CLI Integration",
+  //   description: "Connect with local development environment via CLI tool"
+  // },
 ];
 
 const templates = [

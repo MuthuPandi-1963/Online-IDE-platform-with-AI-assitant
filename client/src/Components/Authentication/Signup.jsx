@@ -6,6 +6,7 @@ import { AuthContext } from '../../store/Context/AuthContext';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import RegisterThunk from '../../store/Thunks/RegisterThunk';
+import {Link} from 'react-router-dom'
 
 const formData = {
     username:"",
@@ -78,12 +79,12 @@ export default function SignupPage() {
     <div className="bg-gray-50">
       <div className="flex flex-col md:flex-row h-screen">
         {/* Left Image Section */}
-        <div className="md:w-1/2 bg-gradient-to-br from-blue-600 to-indigo-700 hidden md:block relative">
+        <div className="md:w-1/2 bg-gradient-to-br from-black to-indigo-900 hidden md:block relative">
           <div className="absolute inset-0 bg-black/30 flex items-center justify-center p-12">
             <div className="text-white text-center">
               <h2 className="text-4xl font-bold mb-6">Welcome to CodeAI</h2>
               <p className="text-xl mb-8">Join our community of developers and leverage AI-powered coding assistance</p>
-              <button className="flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 px-8 py-3 rounded-full transition-all duration-300">
+              <button className="flex items-center justify-center space-x-2 bg-indigo-900 justify-self-center hover:bg-white/20 px-8 py-3 rounded-full transition-all duration-300">
                 <span>Explore Features</span>
                 <ArrowRightIcon className="h-5 w-5" />
               </button>
@@ -97,7 +98,7 @@ export default function SignupPage() {
             <div className="text-center mb-8">
               <h1 className="text-3xl font-bold text-gray-900 mb-2">Create Account</h1>
               <p className="text-gray-500">A Doelready have an account? 
-                <button onClick={()=>authDispatch({type:"login"})} className="text-blue-600 hover:text-blue-700 ml-1">Sign in</button>
+                <Link to={"/login"} className="text-blue-600 hover:text-blue-700 ml-1">Sign in</Link>
               </p>
             </div>
 

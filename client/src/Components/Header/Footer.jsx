@@ -1,19 +1,31 @@
 import { FaGithub, FaLinkedin, FaTwitter, FaCode, FaRegEnvelope } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#2c3e50] text-gray-300 mt-auto">
+    <footer className="bg-black/90 text-gray-300 mt-auto">
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
 
           {/* Left Section */}
           <div className="text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start mb-4">
-              <FaCode className="h-8 w-8 mr-2 text-emerald-400" />
-              <span className="text-xl font-bold">Online IDE</span>
+          <div className="flex items-center ">
+            <Link to="/" className="flex items-center space-x-2">
+              <span className="text-2xl text-blue-400 font-bold">⌘</span>
+              <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
+                CODE-FOX
+              </span>
+              <div className="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center">
+                            <span className="text-xl font-bold">&gt;_</span>
+                        </div>
+            </Link>
+            {/* AI Assistant Status */}
+            <div className="ml-6 flex items-center space-x-2">
+              <div className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></div>
+              <span className="text-gray-300 text-sm max-sm:hidden">AI Assistant Online</span>
             </div>
-            <p className="text-sm mb-2">Code, Compile & Execute</p>
-            <p className="text-sm">Powered by MERN Stack</p>
+          </div>
+            <p className="text-sm my-2">Code, Compile & Execute Powered by MERN Stack</p>
           </div>
 
           {/* Middle Section */}
@@ -42,7 +54,7 @@ const Footer = () => {
               <div className="flex items-center justify-center md:justify-end">
                 <FaRegEnvelope className="mr-2" />
                 <a href="mailto:support@onlineide.com" className="hover:text-emerald-400 transition-colors">
-                  muthupandir74738@gmail.com
+                  angelinsnekha2002@gmail.com
                 </a>
               </div>
             </div>

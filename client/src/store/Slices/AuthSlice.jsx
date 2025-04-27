@@ -4,6 +4,7 @@ import RegisterThunk from "../Thunks/RegisterThunk";
 import GoogleLoginThunk from "../Thunks/GoogleThunk";
 import GitHubLoginThunk from "../Thunks/GithubRoutes";
 import { fetchUserData } from "../Thunks/GetUserThunk";
+import LogoutThunk from "../Thunks/LogoutThunk";
 
 
 const initialState = {
@@ -86,6 +87,15 @@ const AuthReducer = createSlice({
             HandleFulfilled(state,action)
         })
         .addCase(fetchUserData.rejected,(state,action)=>{
+            HandleRejected(state,action)
+        })
+        .addCase(LogoutThunk.pending,(state,action)=>{
+            state.isLoading =true
+        })
+        .addCase(LogoutThunk.fulfilled,(state,action)=>{
+            HandleFulfilled(state,action)
+        })
+        .addCase(LogoutThunk.rejected,(state,action)=>{
             HandleRejected(state,action)
         })
     }

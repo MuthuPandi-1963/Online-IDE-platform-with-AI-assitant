@@ -1,5 +1,8 @@
 @import "tailwindcss";
+@import 'codemirror/lib/codemirror.css';
+@import 'codemirror/theme/dracula.css';
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 body {
   @apply bg-gray-50;
 }
@@ -8,4 +11,31 @@ body {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1a202c;
+}
+::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
+
+/* CodeMirror custom font */
+.CodeMirror {
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  line-height: 1.6;
 }

@@ -10,7 +10,7 @@ import GoogleRoutes from "./Router/GoogleRoutes.js";
 import GitHubRoutes from "./Router/GitHubRoutes.js";
 import session from "express-session";
 import cookieParser from "cookie-parser";
-
+import ProgrammingRoutes from "./Router/RunCodeRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -46,6 +46,7 @@ app.use(passport.session());
 app.use("/auth", authRoutes);
 app.use("/auth", GoogleRoutes);
 app.use("/auth", GitHubRoutes);
+app.use("/code", ProgrammingRoutes);
 
 app.get("/", (req, res) => {
     res.json({
@@ -53,8 +54,13 @@ app.get("/", (req, res) => {
     });
 });
 
+
+
+
+
 // Start Server
 app.listen(PORT, async () => {
     await DB_Config();
     console.log(`Server is running on http://localhost:${PORT}`);
+    // AI21Call()
 });
