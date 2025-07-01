@@ -45,7 +45,7 @@ app.use(passport.session());
 // Routes
 app.use("/auth", authRoutes);
 app.use("/auth", GoogleRoutes);
-app.use("/auth", GitHubRoutes);
+app.use("/oauth", GitHubRoutes);
 app.use("/code", ProgrammingRoutes);
 
 app.get("/", (req, res) => {
