@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   define:{
     "process.env":{
-      VITE_BACKEND_URL_LOCAL :process.env.VITE_BACKEND_URL_LOCAL,
+      VITE_BACKEND_URL :process.env.VITE_BACKEND_URL,
       VITE_FRONTEND_URL_LOCAL :process.env.VITE_FRONTEND_URL_LOCAL,
     }
   },

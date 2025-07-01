@@ -4,13 +4,13 @@ import userModels from '../Models/userModels.js'
 import dotenv from 'dotenv'
 dotenv.config()
 
-const URL = process.env.BACKEND_URL_LOCAL
+const URL = process.env.BACKEND_URL
 
 
 passport.use(new passportGithub.Strategy({
     clientID: process.env.GITHUB_CLIENT_KEY,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: `${URL}/auth/github/callback`
+    callbackURL: `${URL}/oauth/github/callback`
 },
 async(accessToken,refreshToken,profile,done)=>{
     const existingUser = await userModels.findOne({authId:profile.id})

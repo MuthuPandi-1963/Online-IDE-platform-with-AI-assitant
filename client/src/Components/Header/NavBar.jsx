@@ -14,11 +14,11 @@ export default function Navbar() {
   const dispatch = useDispatch()
 
   const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'WEB', href: '/codeEditor' },
-    { name: 'Programming', href: '/programming' },
-    { name: 'Docs', href: '/docs' },
-    { name: 'About', href: '/about' },
+    { name: 'Home', href: '' },
+    { name: 'WEB', href: 'codeEditor' },
+    { name: 'Programming', href: 'programming' },
+    { name: 'Docs', href: 'docs' },
+    { name: 'About', href: 'about' },
   ];
 
   // Function to check active link

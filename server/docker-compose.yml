@@ -1,0 +1,30 @@
+version: "3.9"
+# for local development cmd : docker compose up --build
+services:
+  # API + code‑runner compiled from the Dockerfile above
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: node ./server.js
+    ports:
+      - "8080:8080"
+    environment:
+      - REDIS_URL=redis://queue:6379
+    depends_on:
+      - queue
+
+  # Background worker that pulls compile/run jobs off the queue
+  worker:
+    build: .
+    command: node ./worker.js
+    environment:
+      - REDIS_URL=redis://queue:6379
+    depends_on:
+      - queue
+
+  # Redis queue (swap for Rabbit/Valkey/etc. if you prefer)
+  queue:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"

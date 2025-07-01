@@ -19,7 +19,7 @@ export default function SignupPage() {
     const [RegisterData,setRegisterData]  = useState(formData) 
     const [error,setError] =useState({name:"",message:""})
     const dispatch = useDispatch()
-    const BackendURl = import.meta.env.VITE_BACKEND_URL_LOCAL || "http://localhost:3000"
+    const BackendURl = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000"
 
     const HandleChange = (e)=>{
       const {name,value} = e.target
@@ -66,12 +66,12 @@ export default function SignupPage() {
       }
     }
     async function HandleGoogleLogin(){
-      window.location.href = `${import.meta.env.VITE_BACKEND_URL_LOCAL}/auth/google`;
+      window.location.href = `${import.meta.env.VITE_BACKEND_URL}/auth/google`;
       authDispatch({type:"close"})
 
   }
   async function HandleGithubLogin(){
-    window.location.href = `${import.meta.env.VITE_BACKEND_URL_LOCAL}/auth/github/callback`;
+    window.location.href = `${import.meta.env.VITE_BACKEND_URL}/auth/github/callback`;
     authDispatch({type:"close"})
 
 }

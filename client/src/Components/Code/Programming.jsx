@@ -29,8 +29,9 @@ const CodeRunner = () => {
     setIsAILoading(true); // Start loading
     try {
       const getCode = await dispatch(AiCodeThunk({
-        content: `Write a ${language} program for ${promptInput}. Ensure it contains only pure code, avoids user input, and uses predefined values. No explanations, No title needed like("python X").`
+        content: `Write a ${language} program only for ${promptInput}. Ensure it contains only pure code, avoids user input, and uses predefined values. No explanations, No title needed like("python X").`
       }));
+      console.log(getCode);
       
       const botMessage = getCode?.payload?.data?.message?.content || "print('Sorry some issues happened , Please try Again ..')";
       const answer = botMessage.split(language+"\n")[1].split("```")[0];

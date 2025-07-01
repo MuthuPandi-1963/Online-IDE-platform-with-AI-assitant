@@ -20,12 +20,12 @@ export default function LoginPage() {
   
 
   async function HandleGoogleLogin(){
-    window.location.href = `${import.meta.env.VITE_BACKEND_URL_LOCAL}/auth/google`;
+    window.location.href = `${import.meta.env.VITE_BACKEND_URL}/auth/google`;
     authDispatch({type:"close"})
 
 }
 async function HandleGithubLogin(){
-  window.location.href = `${import.meta.env.VITE_BACKEND_URL_LOCAL}/auth/github/callback`;
+  const value = window.open(`${import.meta.env.VITE_BACKEND_URL}/oauth/github/callback`, '_self');
   authDispatch({type:"close"})
 
 }

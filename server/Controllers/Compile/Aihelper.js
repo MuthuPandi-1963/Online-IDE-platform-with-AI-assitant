@@ -25,7 +25,7 @@ const AIHelper = async (req, res) => {
         },
       ],
     });
-    console.log(response);
+    console.log(  );
     res.status(200)
     .json({
         data : response.choices[0],

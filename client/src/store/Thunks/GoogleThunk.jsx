@@ -4,7 +4,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import axios from "axios";
 
-const URL =import.meta.env.VITE_BACKEND_URL_LOCAL
+const URL =import.meta.env.VITE_BACKEND_URL
 const GoogleLoginThunk = createAsyncThunk(
   "googleLogin",
   async (googleToken, { rejectWithValue }) => {

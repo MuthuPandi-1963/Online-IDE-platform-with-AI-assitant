@@ -1,0 +1,32 @@
+services:
+  # ─────────────── Web service ───────────────
+  - name: ide-web
+    type: web
+    env: docker               # build from the Dockerfile
+    dockerfilePath: ./Dockerfile
+    plan: starter             # pick “starter”, “standard”, etc.
+    autoDeploy: true
+    healthCheckPath: /health  # adjust to your route
+    envVars:
+      - key: REDIS_URL
+        fromService:
+          name: ide-redis
+          property: connectionString
+
+  # ─────────────── Background worker ─────────
+  - name: ide-worker
+    type: worker
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter
+    autoDeploy: true
+    envVars:
+      - key: REDIS_URL
+        fromService:
+          name: ide-redis
+          property: connectionString
+
+  # ─────────────── Redis queue (private) ─────
+  - name: ide-redis
+    type: redis
+    ipAllowList: []           # keep it internal‑only

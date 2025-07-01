@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 import userModels from '../Models/userModels.js'
 dotenv.config()
 
-const URL = process.env.BACKEND_URL_LOCAL
+const URL = process.env.BACKEND_URL
 
 passport.use(
     new GoogleStrategy(
